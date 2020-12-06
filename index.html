@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet"> 
+    <script src="https://kit.fontawesome.com/f1db609589.js" crossorigin="anonymous"></script>
+    <link href = './css/style.css' rel = 'stylesheet'>
+    <link href = './css/previewCand.css' rel = 'stylesheet'>
+    <link href = './css/modalBox.css' rel = 'stylesheet'>
+    <link href = './css/editCand.css' rel = 'stylesheet'>
+
+    <title>Candidate Application</title>
+</head>
+<body>
+    <header id = 'container'>
+        <div class="logo">
+            <h1>Marianos</h1>
+        </div>
+        <div class="inputField">
+            <button id = 'openModal'><i class="fas fa-user-plus"></i>&nbsp;Add Candidate</button>
+        </div>
+    </header>
+    <!-- Modal BOX-->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class = 'formData clmn'>
+                <span class="close"><i class="far fa-times-circle"></i></span>
+                <h3 id = 'notification'></h3>
+                <label for = 'candidateId'>Candidate ID</label>
+                <input id = 'candidateId' type = 'number' class = 'formControl' name = 'candidateId' placeholder = 'Candidate ID' required>
+                <label for = 'candidateName'>Name</label>
+                <input id = 'candidateName' type = 'text'  class = 'formControl' name = 'candidateName' placeholder = 'Candidate Name' required>
+                <label for = 'candidateSurname'>Surname</label>
+                <input id = 'candidateSurname' type = 'text'  class = 'formControl' name ='candidateSurname' placeholder = 'Candidate Surname' required>
+                <label for = 'candidateAge'>Age</label>
+                <input id = 'candidateAge' type = 'number'  class = 'formControl' min = '18' max = '70' name = 'candidateAge' placeholder = 'Candidate Age' required>
+                <label for ='candidatePosition'>Position</label>
+                <select id = 'candidatePosition' class = 'formControl' name = 'candidatePosition' required placeholder = 'Select Position'>
+                    <option value = '' disabled >Candidate Position</option>
+                    <option value = 'FullStack'>Full-Stack</option>
+                    <option value = '.NetDeveloper'>.Net Developer</option>
+                    <option value = 'FrontEnd'>Front-End Developer</option>
+                    <option value = 'QualityAssurance'>Quality Assurance</option>
+                  </select>
+                <label for = 'candidateYofExperience'>Years of experience</label>
+                <input id = 'candidateYofExperience' class = 'formControl' name = 'candidateYofExperience' type = 'number' min = '1' max = '30' placeholder = 'Years of experience' required>
+                <label for = candidateEducation>Education</label>
+                <select id = 'candidateEducation' class = 'formControl' name = 'candidateEducation' required>
+                  <option value = '' disabled>Select Education</option>
+                  <option value = 'HighSchool'>High-School</option>
+                  <option value = 'College'>College</option>
+                  <option value = 'BachelorDegree'>Bachelor Degree</option>
+                </select>
+                <label for = 'candidateProcess'>Status</label>
+                <select id = 'candidateStatus'  class = 'formControl' name = 'candidateStatus' required value = 'Candidate Status'>
+                    <option value = '' disabled >Candidate Status</option>
+                    <option value = 'Inprocess'>In-Process</option>
+                    <option value = 'Hired'>Hired</option>
+                    <option value = 'Rejected'>Rejected</option>
+                </select>
+
+              <label for = 'candidateNote'>Candidate Note</label>
+              <textarea id = 'candidateNote'  class = 'formControl' name = 'candidateNote'></textarea>
+              <div class="flx">
+                <button id = 'btnSubmit'><i class="far fa-address-card fa-lg"></i>&nbsp;Create</button>
+                <button id = 'btnClose'>Cancel</button>
+              </div>
+            </div>
+        </div>
+    </div>
+    <!-- Content -->
+    <div id="content" style = 'display:none;'>
+        <div id="results">
+            <table id = 'table' class = 'dnone' contenteditable="true">
+                <tr>
+                    <td></td>
+                    <td>Candidate ID</td>
+                    <td>Preview Candidate</td>
+                    <td>Candidate Name</td>
+                    <td>Candidate Surname</td>
+                    <td>Candidate Age</td>
+                    <td>Candidate Position</td>
+                    <td>Candidate Years of Exp.</td>
+                    <td>Candidate Education</td>
+                    <td>Candidate Status</td>
+                    <td>Candidate Note</td>
+                    <td>Delete Record</td>
+                </tr>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Preview Box -->
+
+    <!-- The Modal -->
+    <!-- Modal BOX-->
+    <div id="previewCandidate" class="modalPreview">
+        <!-- Modal content -->
+        <div class = 'modalPreviewBox'> 
+            <div class = 'clmn'> 
+                <span class="close2"><i class="far fa-times-circle"></i></span>
+                <h3 id = 'notification'></h3>
+                <label for = 'PreviewcandidateId'>Candidate ID</label>
+                <input id = 'PreviewcandidateId' type = 'number' class = 'formControl' name = 'PreviewcandidateId' disabled>
+                <label for = 'PreviewcandidateName'>Candidate Name</label>
+                <input id = 'PreviewcandidateName' type = 'text' class = 'formControl' name = 'PreviewcandidateName' disabled>
+                <label for = 'PreviewcandidateSurname'>Candidate Surname</label>
+                <input id = 'PreviewcandidateSurname' type = 'text' class = 'formControl' name = 'PreviewcandidateSurname' disabled>
+                <label for = 'PreviewcandidateAge'>Candidate Age</label>
+                <input id = 'PreviewcandidateAge' type = 'number' class = 'formControl' name = 'PreviewcandidateAge' disabled>
+                <label for = 'PreviewcandidatePosition'>Candidate Position</label>
+                <input id = 'PreviewcandidatePosition' type = 'text' class = 'formControl' name = 'PreviewcandidatePosition' disabled>
+                <label for = 'PreviewcandidateExperience'>Candidate Experience</label>
+                <input id = 'PreviewcandidateExperience' type = 'number' class = 'formControl' name = 'PreviewcandidateExperience' disabled>
+                <label for = 'PreviewcandidateEducation'>Candidate Education</label>
+                <input id = 'PreviewcandidateEducation' type = 'text' class = 'formControl' name = 'PreviewcandidateEducation' disabled>
+                <label for = 'PreviewcandidateStatus'>Candidate Status</label>
+                <input id = 'PreviewcandidateStatus' type = 'text' class = 'formControl' name = 'PreviewcandidateStatus' disabled>
+                <label for = 'PreviewcandidateNote'>Candidate Note</label>
+                <textarea id = 'PreviewcandidateNote' type = 'text' class = 'formControl' name = 'PreviewcandidateNote' disabled></textarea>
+                <button id = 'btnCloseView'>Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Box -->
+    <!-- Modal BOX-->
+    <div id="EditCandidate" class="modalEdit">
+        <!-- Modal content -->
+        <div class = 'modalEditBox'> 
+            <div class = 'clmn'> 
+                <span class="close3"><i class="far fa-times-circle"></i></span>
+                <h3 id = 'notification'></h3>
+                <label for = 'EditcandidateId'>Candidate ID</label>
+                <input id = 'EditcandidateId' type = 'number' class = 'formControl' name = 'EditcandidateId'>
+                <label for = 'EditcandidateName'>Candidate Name</label>
+                <input id = 'EditcandidateName' type = 'text' class = 'formControl' name = 'EditcandidateName'>
+                <label for = 'EditcandidateSurname'>Candidate Surname</label>
+                <input id = 'EditcandidateSurname' type = 'text' class = 'formControl' name = 'EditcandidateSurname'>
+                <label for = 'EditcandidateAge'>Candidate Age</label>
+                <input id = 'EditcandidateAge' type = 'number' class = 'formControl' name = 'EditcandidateAge'>
+                <label for = 'EditcandidatePosition'>Candidate Position</label>
+                <input id = 'EditcandidatePosition' type = 'text' class = 'formControl' name = 'EditcandidatePosition'>
+                <label for = 'EditcandidateExperience'>Candidate Experience</label>
+                <input id = 'EditcandidateExperience' type = 'number' class = 'formControl' name = 'EditcandidateExperience'>
+                <label for = 'EditcandidateEducation'>Candidate Education</label>
+                <input id = 'EditcandidateEducation' type = 'text' class = 'formControl' name = 'EditcandidateEducation'>
+                <label for = 'EditcandidateStatus'>Candidate Status</label>
+                <input id = 'EditcandidateStatus' type = 'text' class = 'formControl' name = 'EditcandidateStatus'>
+                <label for = 'EditcandidateNote'>Candidate Note</label>
+                <textarea id = 'EditcandidateNote' type = 'text' class = 'formControl' name = 'EditcandidateNote'></textarea>
+                <div class="flx">
+                    <button id = 'btnEditCandidate' class = 'btnSave'>Save</button>
+                    <button id = 'btnEditCandidateClose' class = 'btnCloseCandidate'>Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src = './js/app.js'></script>
+    <script src = './js/modalBox.js'></script> 
+
+</body>
+</html>
